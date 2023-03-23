@@ -1,0 +1,39 @@
+project_name: i-luv-grandma
+
+builds:
+  - id: binary
+    dir: .
+    binary: i-luv-grandma
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s
+      - -w
+      - -X main.Version={{.Version}}
+      - -X main.Revision={{.FullCommit}}
+      - -X main.Branch={{.Branch}}
+      - -X main.BuildUser={{.Env.USER}}
+      - -X main.BuildDate={{.Date}}
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+
+archives:
+  - id: archives
+    builds:
+      - binary
+    format: "tar.gz"
+    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    wrap_in_directory: true
+    files:
+      - LICENSE*
+      - README*
+      - CHANGELOG*
+      - docs/*
+      - assets/*
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256

@@ -1,0 +1,89 @@
+run:
+  timeout: 30m
+output:
+  format: line-number
+# linters-settings:
+#   gosec:
+#     exclude:
+#     - G104
+#   funlen:
+#     lines: 120
+#     statements: 45
+#   goimports: null
+#   gocyclo:
+#     min-complexity: 30
+#   gocognit:
+#     min-complexity: 20
+#   maligned:
+#     suggest-new: true
+#   dupl:
+#     threshold: 100
+#   misspell:
+#     ignore-words:
+#     - GitLab
+#   lll:
+#     tab-width: 1
+#   gocritic:
+#     settings:
+#       captLocal:
+#         paramsOnly: true
+#   godox:
+#     keywords:
+#     - TODO
+#     - BUG
+#     - FIXME
+#     - NOTE
+#     - OPTIMIZE
+#     - HACK
+#     - XXX
+#   wsl:
+#     allow-cuddle-declarations: false
+#     allow-trailing-comment: false
+#     force-case-trailing-whitespace: 0
+linters:
+  disable-all: false
+  enable:
+  - bodyclose
+  - depguard
+  - dogsled
+  - dupl
+  - errcheck
+  - exportloopref
+  - funlen
+  - gocognit
+  - goconst
+  - gocritic
+  - godox
+  - gofmt
+  - goimports
+  - gosec
+  - gosimple
+  - govet
+  - ineffassign
+  - misspell
+  - nakedret
+  - revive
+  - staticcheck
+  - stylecheck
+  - typecheck
+  - unconvert
+  - unparam
+  - unused
+  - whitespace
+  - reassign
+# issues:
+#   exclude-rules:
+#   - path: _test\.go
+#     linters:
+#     - gocyclo
+#     - errcheck
+#     - dupl
+#     - gosec
+#     - funlen
+#   - linters:
+#     - lll
+#     source: '^//go:generate '
+#   exclude-use-default: false
+#   max-issues-per-linter: 0
+#   max-same-issues: 0
+#   new: false
