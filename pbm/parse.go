@@ -12,46 +12,45 @@ import (
 )
 
 // extract next valid token from buffer ignoring comment, whitespaces and newlines
-//  1. eat up anything until end of comment or end of input
-//  2. valid tokens must contain only number
-//  3. atEOF tells us if that no more data is available in stream
+//  1. atEOF tells us if that no more data is available in stream
+//  2. increment inside loop, advance must have incremented value in switch returns
+//  3. eat up anything until end of comment or end of input
 func nextToken(data []byte, atEOF bool) (int, []byte, error) {
-	token := []byte{}
-	available := len(data)
-	advance := 0
+	var (
+		err       error
+		available = len(data)
+		advance   = 0
+		token     = []byte{}
+	)
 
+	// 1.
+	if atEOF {
+		err = bufio.ErrFinalToken
+	}
+
+	// 2.
 	for advance < available {
 		char := data[advance]
 		advance++
-		switch char {
-		case ' ':
+		switch {
+		case char == ' ', char == '\n':
 			if len(token) != 0 {
-				return advance, token, nil
+				return advance, token, err
 			}
-		case '\n':
-			if len(token) != 0 {
-				return advance, token, nil
-			}
-		case '#':
-			// 1.
+		case char == '#':
+			// 3.
 			for advance < available && char != '\n' {
 				char = data[advance]
 				advance++
 			}
-		default:
-			// 2.
-			if char < '0' || char > '9' {
-				return advance, token, fmt.Errorf("unexpected input '%c'", char)
-			}
+		case char >= '0' || char <= '9':
 			token = append(token, char)
+		default:
+			return advance, token, fmt.Errorf("unexpected input '%c'", char)
 		}
 	}
 
-	// 3.
-	if atEOF {
-		return advance, token, bufio.ErrFinalToken
-	}
-	return advance, token, nil
+	return advance, token, err
 }
 
 func (i *Image) parse(stream io.Reader) error {
