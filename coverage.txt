@@ -7,7 +7,9 @@ gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:56:	parse			100.0%
 gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:70:	parseMagic		100.0%
 gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:82:	parseHeader		83.3%
 gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:104:	parseData		93.3%
-gihub.com/psycofdj/i-luv-grandma/pbm/process.go:20:	Rotate			100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/process.go:27:	NewRotator		100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/process.go:54:	RotateCoord		100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/process.go:67:	Rotate			100.0%
 gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:14:	EncodeASCIIToFile	77.8%
 gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:31:	EncodeASCII		100.0%
 gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:38:	encodeASCIIHeader	85.7%
