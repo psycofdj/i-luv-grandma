@@ -1,4 +1,16 @@
-[![build](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml)
+[![tests](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml) [![linter](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml) [![coverage](https://psycofdj.github.io/i-luv-grandma/coverage-badge.svg)](https://psycofdj.github.io/i-luv-grandma/coverage.txt)
+
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [CI Workflows](#ci-workflows)
+- [Limitations](#limitations)
+<!-- markdown-toc end -->
+
 
 # Introduction
 
@@ -80,11 +92,31 @@ P1
   - run pkgsite: `pkgsite`
   - open browser: `sensible-browser http://localhost:8080`
 
-# CI
+# CI Workflows
 
-- how to release
-  - push new tag to repository
-  - goreleaser workflow will create release and attach compiled binaries
+- the `release` workflow:
+  - triggers on new semver tags like `v1.2.3` or `v1.2.3-rc4`
+  - checks that unit-tests are passing and that code is free from linter warnings
+  - run [goreleaser](https://goreleaser.com/) which:
+    - generates tarballs for linux and darwin arch
+    - creates new github release
+    - upload tarballs to releases
+
+- the `tests` workflow:
+  - triggers on new commits
+  - run unit-tests
+
+- the `linter` workflow:
+  - triggers on new commits
+  - run [golangci-lint](https://github.com/golangci/golangci-lint)
+  - creates github [annotations](https://github.blog/2018-12-14-introducing-check-runs-and-annotations/)
+    for each issues found by the linter
+
+- the `coverage` workflow:
+  - triggers on new commit for `main` branch
+  - runs unit-tests and extract coverage informations
+  - updates `gh-pages` branch with reports and badge given overall total
+  - badge is displayed on top of this README.md
 
 
 # Limitations
