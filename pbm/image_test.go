@@ -1,3 +1,7 @@
+// Copyright 2023 Xavier MARCELET. All rights reserved.
+// Use of this source code is governed by Apache
+// license that can be found in the LICENSE file.
+
 package pbm
 
 import (
