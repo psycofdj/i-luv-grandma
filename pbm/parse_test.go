@@ -5,7 +5,6 @@
 package pbm
 
 import (
-	"runtime"
 	"testing"
 )
 
@@ -58,15 +57,16 @@ func TestParse_incorrectHeight(t *testing.T) {
 }
 
 func expect(t *testing.T, image *Image, err error, width, height int, data string) {
-	_, file, no, _ := runtime.Caller(1)
+	t.Helper()
+
 	if err != nil {
-		t.Fatalf("%s:%d: expected parse error: %s", file, no, err)
+		t.Fatalf("expected parse error: %s", err)
 	}
 	if width != image.width {
-		t.Fatalf("%s:%d: expected width %d, got '%d'", file, no, width, image.width)
+		t.Fatalf("expected width %d, got '%d'", width, image.width)
 	}
 	if width != image.height {
-		t.Fatalf("%s:%d: expected height %d, got '%d'", file, no, height, image.height)
+		t.Fatalf("expected height %d, got '%d'", height, image.height)
 	}
 	for cIdx, cPixel := range image.data {
 		want := "0"
@@ -74,7 +74,7 @@ func expect(t *testing.T, image *Image, err error, width, height int, data strin
 			want = "1"
 		}
 		if string(data[cIdx]) != want {
-			t.Fatalf("%s:%d: unexpected data result, what '%s', got '%v'", file, no, data, image.data)
+			t.Fatalf("unexpected data result, what '%s', got '%v'", data, image.data)
 		}
 	}
 }

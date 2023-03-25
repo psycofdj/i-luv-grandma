@@ -6,27 +6,26 @@ package pbm
 
 import (
 	"bytes"
-	"runtime"
 	"testing"
 )
 
 func checkRotation(t *testing.T, angle float64, in string, expect string) {
-	_, file, no, _ := runtime.Caller(1)
+	t.Helper()
 
 	img, err := NewImageFromString(in)
 	if err != nil {
-		t.Fatalf("%s:%d: expected parse error: %s", file, no, err)
+		t.Fatalf("expected parse error: %s", err)
 	}
 
 	img.Rotate(angle)
 
 	writer := bytes.Buffer{}
 	if err := img.EncodeASCII(&writer); err != nil {
-		t.Fatalf("%s:%d: expected encode error: %s", file, no, err)
+		t.Fatalf("expected encode error: %s", err)
 	}
 
 	if writer.String() != expect {
-		t.Fatalf("%s:%d: unexpected output: %s", file, no, writer.String())
+		t.Fatalf("unexpected output: %s", writer.String())
 	}
 }
 
