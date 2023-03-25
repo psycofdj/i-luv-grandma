@@ -31,7 +31,7 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          args: --config .golangci.ym
+          args: --config .golangci.yml
 
       - name: run goreleaser
         uses: goreleaser/goreleaser-action@v4
