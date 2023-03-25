@@ -13,7 +13,5 @@ coverage:
 
 perfs:
 	@go build -o i-luv-grandma .
-	@./i-luv-grandma -profile output.pprof -input dataset/valid_4320p.pbm -output /dev/null -angle 180
+	@./i-luv-grandma -profile output.pprof -input dataset/4320p.pbm -output /dev/null -angle 180
 	@go tool pprof -top i-luv-grandma output.pprof
-
-

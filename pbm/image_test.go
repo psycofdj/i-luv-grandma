@@ -25,7 +25,7 @@ func TestNewFromFile_valid(t *testing.T) {
 	}
 
 	datasetPath := filepath.Join(filepath.Dir(srcPath), "..", "dataset")
-	testPath := filepath.Join(datasetPath, "valid_480p.pbm")
+	testPath := filepath.Join(datasetPath, "480p.pbm")
 	if _, err := NewImageFromFile(testPath); err != nil {
 		t.Fatalf("unexpected error: %s", err)
 	}
@@ -40,7 +40,7 @@ func TestNewFromFile_stdin(t *testing.T) {
 		t.Fatalf("could not determine current source file path")
 	}
 	datasetPath := filepath.Join(filepath.Dir(srcPath), "..", "dataset")
-	testPath := filepath.Join(datasetPath, "valid_480p.pbm")
+	testPath := filepath.Join(datasetPath, "480p.pbm")
 	input, err := os.Open(testPath)
 	if err != nil {
 		t.Fatalf("could not read test file '%s': %s", testPath, err)

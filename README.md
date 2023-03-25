@@ -129,10 +129,12 @@ P1
  The current rotate implementation guaranty to preserve source image size at the cost of
  possible pixel loss for those projected outside boundaries.
 
- A possible improvement would we to implement a `--no-cropping` option that allows a different
+ This could be a problem for my beloved grandma cause she clearly lakes basic photograph skills
+ and the main subject is in the bottom right corner most of the time.
+
+ A possible improvement would we to implement a `--resize` option that allows a different
  size in result image. It could work as follow:
  - create a bigger working space ensuring all points can be projected for any given angles
-   - $side = 2 * \sqrt{(image.width/2)^2 + (image.height/2)^2}$
+   - required space size can be computed by rotating all 4 corner pixels
  - translate source image in new space matching center of rotation
  - operate pixel rotations
- - crop result image boundaries to closest written pixels

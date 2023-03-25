@@ -60,14 +60,14 @@ func (i *Image) encodeASCIIData(stream io.Writer) error {
 		// 1.
 		result    = make([]byte, (i.Width()+1)*i.Height())
 		separator = byte(10)
-		black     = byte(48)
-		white     = byte(49)
+		white     = byte(48)
+		black     = byte(49)
 	)
 	for cOffset, cIdx := 0, 0; cIdx < i.Width()*i.Height(); cIdx++ {
 		if i.data[cIdx] {
-			result[cIdx+cOffset] = white
-		} else {
 			result[cIdx+cOffset] = black
+		} else {
+			result[cIdx+cOffset] = white
 		}
 		// 2.
 		if (cIdx+1)%i.Width() == 0 {

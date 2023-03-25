@@ -44,6 +44,48 @@ func TestRotate_invariants(t *testing.T) {
 	checkRotation(t, -720, in, in)
 }
 
+func TestRotate_evenInvariants(t *testing.T) {
+	in := `P1
+2 2
+10
+00
+`
+	// check invariant rotations
+	checkRotation(t, 0, in, in)
+	checkRotation(t, 360, in, in)
+	checkRotation(t, -360, in, in)
+	checkRotation(t, 720, in, in)
+	checkRotation(t, -720, in, in)
+}
+
+func TestRotate_evenSquare(t *testing.T) {
+	in := `P1
+2 2
+10
+00
+`
+	out := `P1
+2 2
+01
+00
+`
+	checkRotation(t, 90, in, out)
+
+	out = `P1
+2 2
+00
+01
+`
+	checkRotation(t, 180, in, out)
+
+	out = `P1
+2 2
+00
+10
+`
+	checkRotation(t, -90, in, out)
+}
+
 func TestRotate_backslash(t *testing.T) {
 	// backslash input
 	const in = `P1
@@ -120,7 +162,7 @@ func TestRotate_oddSquare(t *testing.T) {
 	checkRotation(t, 90, in, out)
 }
 
-func TestRotate_evenSquare(t *testing.T) {
+func TestRotate_squareLine(t *testing.T) {
 	// even square input
 	in := `P1
 4 4
@@ -144,7 +186,7 @@ func TestRotate_evenWidthRect(t *testing.T) {
 	in := `P1
 6 3
 000000
-111111
+011110
 000000
 `
 	out := `P1
@@ -177,4 +219,76 @@ func TestRotate_evenHeight(t *testing.T) {
 000
 `
 	checkRotation(t, 90, in, out)
+}
+
+func TestRotate_evenHeight2(t *testing.T) {
+	// even-height rectangle
+	in := `P1
+3 6
+010
+010
+111
+010
+010
+010
+`
+	out := `P1
+3 6
+000
+000
+001
+111
+001
+000
+`
+	checkRotation(t, 90, in, out)
+}
+
+func TestRotate_clock(t *testing.T) {
+	// even-height rectangle
+	in := `P1
+11 11
+00000100000
+00000100000
+00000100000
+00000100000
+00000100000
+00000100000
+00000000000
+00000000000
+00000000000
+00000000000
+00000000000
+`
+	out := `P1
+11 11
+00000000000
+00000000010
+00000000100
+00000001000
+00000010000
+00000100000
+00000000000
+00000000000
+00000000000
+00000000000
+00000000000
+`
+	checkRotation(t, 45, in, out)
+
+	out = `P1
+11 11
+00000000000
+00000000000
+00000000000
+00000000011
+00000001100
+00000110000
+00000000000
+00000000000
+00000000000
+00000000000
+00000000000
+`
+	checkRotation(t, 67.5, in, out)
 }
