@@ -1,0 +1,15 @@
+gihub.com/psycofdj/i-luv-grandma/pbm/image.go:27:	NewImageFromString	100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/image.go:37:	NewImageFromFile	91.7%
+gihub.com/psycofdj/i-luv-grandma/pbm/image.go:59:	Width			100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/image.go:64:	Height			100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:18:	nextToken		93.3%
+gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:56:	parse			100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:70:	parseMagic		100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:82:	parseHeader		83.3%
+gihub.com/psycofdj/i-luv-grandma/pbm/parse.go:104:	parseData		93.3%
+gihub.com/psycofdj/i-luv-grandma/pbm/process.go:20:	Rotate			100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:14:	EncodeASCIIToFile	77.8%
+gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:31:	EncodeASCII		100.0%
+gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:38:	encodeASCIIHeader	85.7%
+gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go:58:	encodeASCIIData		90.9%
+total:							(statements)		93.1%
