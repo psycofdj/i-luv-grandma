@@ -71,6 +71,11 @@ P1
 01000
 ```
 
+- original file: ![original](./dataset/720p-orig.png?raw=true "Original file")
+- with 45° rotation: ![rot45](./dataset/720p-rot45.png?raw=true "45° rotation")
+- with 90° rotation: ![rot90](./dataset/720p-rot90.png?raw=true "90° rotation")
+- with 180° rotation: ![rot180](./dataset/720p-rot180.png?raw=true "180° rotation")
+
 # Development
 
 - unit-tests
