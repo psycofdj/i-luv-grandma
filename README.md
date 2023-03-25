@@ -59,16 +59,16 @@ $ ./i-luv-grandma --angle 180 --input dataset/valid_j.pbm --output -
 
 P1
 6 10
-00000
-00000
-00111
-01000
-01000
-01000
-01000
-01000
-01000
-01000
+000000
+000000
+001110
+010001
+010000
+010000
+010000
+010000
+010000
+010000
 ```
 
 - original file: ![original](./dataset/720p-orig.png?raw=true "Original file")
