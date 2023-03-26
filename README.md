@@ -1,4 +1,5 @@
-[![tests](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml) [![linter](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml) [![coverage](https://psycofdj.github.io/i-luv-grandma/coverage-badge.svg)](https://psycofdj.github.io/i-luv-grandma/coverage.txt)
+[![tests](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/tests.yml) [![linter](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml/badge.svg)](https://github.com/psycofdj/i-luv-grandma/actions/workflows/linter.yml) [![coverage](https://psycofdj.github.io/i-luv-grandma/coverage-badge.svg)](https://psycofdj.github.io/i-luv-grandma/coverage.txt) [![doc](https://psycofdj.github.io/i-luv-grandma/doc/badge.svg)](https://psycofdj.github.io/i-luv-grandma/doc/index.html)
+
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
@@ -20,14 +21,13 @@ In order to remain her favorite grand-son, I decided to help her enjoying her fa
 rotating pictures of her dearest memories.
 
 To help her out, I wrote the `i-luv-grandma` program which takes
-[pbm](https://en.wikipedia.org/wiki/Netpbm) files and rotate the picture to a given number
-of degrees.
+[pbm](https://en.wikipedia.org/wiki/Netpbm) files and rotates the pictures to a given angle.
 
 # Installation
 
 * from release assets
   * download assets for your architecture from [latest release](https://github.com/psycofdj/i-luv-grandma/releases)
-  * extract tarball: `tar xzf i-luv-grandma_0.1.0_linux_amd64.tar.gz`
+  * extract tarball: `tar xzf i-luv-grandma_1.0.0_linux_amd64.tar.gz`
 * from go install: `go install gihub.com/psycofdj/i-luv-grandma`
 * from source: `CGO_ENABLED=0 go build -o i-luv-grandma -ldflags='-s -w' .`
 
@@ -89,7 +89,7 @@ P1
   - run: `golangci-lint run --config .golangci.yml`
 
 - performance analysis
-  - generate profile trace: `./i-luv-grandma -profile output.pprof -input dataset/valid_4320p.pbm -output /dev/null -angle 180`
+  - generate profile trace: `./i-luv-grandma -profile output.pprof -input dataset/4320p.pbm -output /dev/null -angle 180`
   - inspect profile: `go tool pprof -top i-luv-grandma output.pprof`
 
 - view documentation locally
@@ -117,12 +117,16 @@ P1
   - creates github [annotations](https://github.blog/2018-12-14-introducing-check-runs-and-annotations/)
     for each issues found by the linter
 
-- the `coverage` workflow:
+- the `reports` workflow:
   - triggers on new commit for `main` branch
-  - runs unit-tests and extract coverage informations
-  - updates `gh-pages` branch with reports and badge given overall total
-  - badge is displayed on top of this README.md
-
+  - creates coverage report
+    - runs unit-tests and extract coverage informations
+    - creates badge file with overall total result (displayed on top of this `README.md`)
+  - creates documentation report
+    - generate static documentation websiteusing [godoc-static](code.rocketnine.space/tslocum/godoc-static)
+    - creates badge (displayed on top of this `README.md`)
+  - pushes [gh-pages](https://github.com/psycofdj/i-luv-grandma/tree/gh-pages) branch which is
+    served by [Github Pages](https://pages.github.com)
 
 # Limitations
 

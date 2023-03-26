@@ -63,7 +63,7 @@ func (r *Rotator) Compute(x int, y int) (int, int) {
 // Pixels projected outside image boundaries will be lost.
 //
 //  1. working buffer is already full of white pixels, we only need to rotate black ones
-//  2. discard out-of-bout pixel coordinates
+//  2. discard out-of-bound pixel coordinates
 func (i *Image) Rotate(angle float64) {
 	rotator := NewRotator(angle, i)
 
