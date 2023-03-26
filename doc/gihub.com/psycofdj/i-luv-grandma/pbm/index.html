@@ -1,0 +1,379 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>pbm - Documentation</title>
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="../../../../lib/style.css"/></head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../">Documentation</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../">Documentation</a></div>
+<!--<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>-->
+<div id="menu">
+<a href="../../../../" style="margin-right: 10px;">Package Index</a>
+</div>
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package pbm
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import &#34;<a href="https://gihub.com/psycofdj/i-luv-grandma/pbm" target="_blank">gihub.com/psycofdj/i-luv-grandma/pbm</a>&#34;</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package pbm provides a BPM format library which includes operations such
+as loading, writing and rotating images
+
+				
+			</p></div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+			
+				
+				<dd><a href="#Image">type Image</a></dd>
+				
+					
+					<dd>    <a href="#NewImageFromFile">func NewImageFromFile(path string) (*Image, error)</a></dd>
+				
+					
+					<dd>    <a href="#NewImageFromString">func NewImageFromString(value string) (*Image, error)</a></dd>
+				
+				
+					
+					<dd>    <a href="#Image.EncodeASCII">func (i *Image) EncodeASCII(stream io.Writer) error</a></dd>
+				
+					
+					<dd>    <a href="#Image.EncodeASCIIToFile">func (i *Image) EncodeASCIIToFile(path string) error</a></dd>
+				
+					
+					<dd>    <a href="#Image.Height">func (i *Image) Height() int</a></dd>
+				
+					
+					<dd>    <a href="#Image.Rotate">func (i *Image) Rotate(angle float64)</a></dd>
+				
+					
+					<dd>    <a href="#Image.Width">func (i *Image) Width() int</a></dd>
+				
+			
+				
+				<dd><a href="#Rotator">type Rotator</a></dd>
+				
+					
+					<dd>    <a href="#NewRotator">func NewRotator(angle float64, image *Image) *Rotator</a></dd>
+				
+				
+					
+					<dd>    <a href="#Rotator.Compute">func (r *Rotator) Compute(x int, y int) (int, int)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html">image.go</a>
+			
+				<a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/parse.go.html">parse.go</a>
+			
+				<a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/process.go.html">process.go</a>
+			
+				<a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go.html">serialize.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>PBMMagicP1 is the special magic header of PBM black&amp;white image format
+see <a href="https://en.wikipedia.org/wiki/Netpbm">https://en.wikipedia.org/wiki/Netpbm</a>
+
+				</p><pre>const <span id="PBMMagicP1">PBMMagicP1</span> <a href="../../../../builtin/#string">string</a> = &#34;P1&#34;</pre>
+			
+		
+		
+		
+		
+			
+			
+			<h2 id="Image">type <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html?s=506:566#L10">Image</a>
+				<a class="permalink" href="#Image">¶</a>
+				
+				
+			</h2>
+			<p>Image - Represent a PBM image
+
+			</p><pre>type Image struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewImageFromFile">func <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html?s=854:904#L27">NewImageFromFile</a>
+					<a class="permalink" href="#NewImageFromFile">¶</a>
+					
+					
+				</h3>
+				<pre>func NewImageFromFile(path <a href="../../../../builtin/#string">string</a>) (*<a href="#Image">Image</a>, <a href="../../../../builtin/#error">error</a>)</pre>
+				<p>Creates Image object from given file path
+
+				
+				
+			
+				
+				</p><h3 id="NewImageFromString">func <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html?s=610:663#L17">NewImageFromString</a>
+					<a class="permalink" href="#NewImageFromString">¶</a>
+					
+					
+				</h3>
+				<pre>func NewImageFromString(value <a href="../../../../builtin/#string">string</a>) (*<a href="#Image">Image</a>, <a href="../../../../builtin/#error">error</a>)</pre>
+				<p>Creates Image object from given string
+
+				
+				
+			
+
+			
+				
+				</p><h3 id="Image.EncodeASCII">func (*Image) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go.html?s=631:682#L21">EncodeASCII</a>
+					<a class="permalink" href="#Image.EncodeASCII">¶</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Image">Image</a>) EncodeASCII(stream <a href="../../../../io/">io</a>.<a href="../../../../io/#Writer">Writer</a>) <a href="../../../../builtin/#error">error</a></pre>
+				<p>Serialize image into stream in ascii/plain representation
+
+				
+				
+				
+			
+				
+				</p><h3 id="Image.EncodeASCIIToFile">func (*Image) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/serialize.go.html?s=259:311#L4">EncodeASCIIToFile</a>
+					<a class="permalink" href="#Image.EncodeASCIIToFile">¶</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Image">Image</a>) EncodeASCIIToFile(path <a href="../../../../builtin/#string">string</a>) <a href="../../../../builtin/#error">error</a></pre>
+				<p>Serialize image into file in ascii/plain representation
+
+				
+				
+				
+			
+				
+				</p><h3 id="Image.Height">func (*Image) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html?s=1296:1324#L54">Height</a>
+					<a class="permalink" href="#Image.Height">¶</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Image">Image</a>) Height() <a href="../../../../builtin/#int">int</a></pre>
+				<p>Returns image&#39;s height
+
+				
+				
+				
+			
+				
+				</p><h3 id="Image.Rotate">func (*Image) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/process.go.html?s=1972:2009#L57">Rotate</a>
+					<a class="permalink" href="#Image.Rotate">¶</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Image">Image</a>) Rotate(angle <a href="../../../../builtin/#float64">float64</a>)</pre>
+				<p>Rotate image to given angle
+</p><p>Pixels projected outside image boundaries will be lost.
+</p><ol>
+<li>working buffer is already full of white pixels, we only need to rotate black ones
+</li><li>discard out-of-bound pixel coordinates
+</li></ol>
+
+				
+				
+				
+			
+				
+				<h3 id="Image.Width">func (*Image) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/image.go.html?s=1221:1248#L49">Width</a>
+					<a class="permalink" href="#Image.Width">¶</a>
+					
+					
+				</h3>
+				<pre>func (i *<a href="#Image">Image</a>) Width() <a href="../../../../builtin/#int">int</a></pre>
+				<p>Returns image&#39;s width
+
+				
+				
+				
+			
+		
+			
+			
+			</p><h2 id="Rotator">type <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/process.go.html?s=317:694#L3">Rotator</a>
+				<a class="permalink" href="#Rotator">¶</a>
+				
+				
+			</h2>
+			<p>Rotator computes rotated coordinates for a given (x,y) point
+Stores constant values for a given rotation of a given image
+
+			</p><pre>type Rotator struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewRotator">func <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/process.go.html?s=905:958#L17">NewRotator</a>
+					<a class="permalink" href="#NewRotator">¶</a>
+					
+					
+				</h3>
+				<pre>func NewRotator(angle <a href="../../../../builtin/#float64">float64</a>, image *<a href="#Image">Image</a>) *<a href="#Rotator">Rotator</a></pre>
+				<p>NewRotator initializes rotator object
+</p><ol>
+<li>constant values for given angle and image
+</li><li>when center of rotation is on an inter-pixel for only one coordinates
+translate point to half a pixel
+</li></ol>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Rotator.Compute">func (*Rotator) <a href="../../../../src/gihub.com/psycofdj/i-luv-grandma/pbm/process.go.html?s=1475:1525#L44">Compute</a>
+					<a class="permalink" href="#Rotator.Compute">¶</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Rotator">Rotator</a>) Compute(x <a href="../../../../builtin/#int">int</a>, y <a href="../../../../builtin/#int">int</a>) (<a href="../../../../builtin/#int">int</a>, <a href="../../../../builtin/#int">int</a>)</pre>
+				<p>RotateCoord computes pixel new coordinates after rotation
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+</p><div id="footer">Generated by <a href="https://godoc.org/golang.org/x/tools/godoc" target="_blank">godoc</a> + <a href="https://code.rocketnine.space/tslocum/godoc-static" target="_blank">godoc-static</a></div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>
